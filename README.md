@@ -6,6 +6,7 @@ If you have a hash or an array or something that quacks like one, you can do stu
 example:
 
 ```ruby
+  require 'dot_notation'
   h = {a: {b: {c: [{d: 'hi'}]}}}
   h.extend(DotNotation)
   h.dot('a.b.c.0.d')
