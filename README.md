@@ -2,16 +2,20 @@
 
 Simple-ish enumberable-simplifier. Useful for APIs like Twitter, etc
 
-If you have a hash or an array or something that quacks like one, you can do stuff
-example:
+If you have a hash or an array or something that quacks like one, you can do stuff like this:
 
 ```ruby
   require 'dot_notation'
   h = {a: {b: {c: [{d: 'hi'}]}}}
-  h.extend(DotNotation)
-  h.dot('a.b.c.0.d')
+
+  h[:a][:b][:c][0][:d] # ugh, what a pain
   #=> 'hi'
-  h.dot('a.b.c.foo.bar.bz.whatever.124.whocares')
+
+  h.extend(DotNotation)
+  h.dot('a.b.c.0.d') # yay!
+  #=> 'hi'
+
+  h.dot('a.b.c.foo.bar.bz.whatever.124.whocares') # automagic nilchecks
   #=> nil
 ```
 
