@@ -1,6 +1,18 @@
 # DotNotation
 
-TODO: Write a gem description
+Simple-ish enumberable-simplifier. Useful for APIs like Twitter, etc
+
+If you have a hash or an array or something that quacks like one, you can do stuff
+example:
+
+```ruby
+  h = {a: {b: {c: [{d: 'hi'}]}}}
+  h.extend(DotNotation)
+  h.dot('a.b.c.0.d')
+  #=> 'hi'
+  h.dot('a.b.c.foo.bar.bz.whatever.124.whocares')
+  #=> nil
+```
 
 ## Installation
 
@@ -15,10 +27,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install dot_notation
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
